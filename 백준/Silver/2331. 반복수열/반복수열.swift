@@ -10,7 +10,7 @@ while true{
     var new = 0
     while (now != 0){
         var s = 1
-        for j in 1...K{
+        for _ in 1...K{
             s = s*(now%10)
         }
         new += s
@@ -18,15 +18,8 @@ while true{
     }
     if arr.contains(new){
         var kkk = 0
-        while true{
-            if new != arr[kkk]{
-                kkk += 1
-            }
-            else {
-                break
-            }
-        }
-        print(kkk)
+        print(arr.firstIndex(of: new)!)
+        
         break
     }
     arr.append(new)
