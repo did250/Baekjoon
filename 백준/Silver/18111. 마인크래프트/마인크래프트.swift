@@ -1,5 +1,4 @@
 var input = readLine()!.split(separator: " ").map { Int(String($0))!}
-
 var N = input[0]
 var M = input[1]
 var B = input[2]
@@ -8,7 +7,7 @@ var min = 256
 var max = 0
 var total = B
 for i in 0...N-1{
-    var temp = readLine()!.split(separator: " ").map { Int(String($0))!}
+    let temp = readLine()!.split(separator: " ").map { Int(String($0))!}
     for j in 0...M-1{
         arr[i][j] = temp[j]
         if arr[i][j]<min{
@@ -22,33 +21,24 @@ for i in 0...N-1{
 }
 var an = [Int]()
 var an2 = [Int]()
-var number = N*M
-var need = 0
+
 var answer = Int()
 for s in min...max{
-    
-    var blocks = B
     answer = 0
-    var cnt = 0
     if total >= s*N*M{
         loop : for i in 0...N-1{
             for j in 0...M-1{
-                if arr[i][j] == s {
-                    
-                }
-                else if arr[i][j] > s{
-                    var t = arr[i][j]-s
+                if arr[i][j] > s{
+                    let t = arr[i][j]-s
                     answer += 2*t
-                    
                 }
-                else {
+                else if arr[i][j] < s{
                     answer += s-arr[i][j]
                 }
             }
             if i == N-1{
                 an.append(answer)
                 an2.append(s)
-                
             }
         }
     }
@@ -58,7 +48,6 @@ for s in min...max{
 var ans = an[0]
 var ans2 = 0
 for i in 0...an.count-1{
-    
     if an[i]<ans{
         ans=an[i]
         ans2 = an2[i]
