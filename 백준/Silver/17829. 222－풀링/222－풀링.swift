@@ -6,7 +6,48 @@ for i in 0...N-1{
     for j in 0...N-1{
         arr[i][j] = input[j]
     }
-    
+}
+
+func max ( A : Int, B:Int, C:Int, D:Int) -> Int{
+    if ( A >= B && B >= C && B >= D){
+        return B
+    }
+    else if ( D >= B && B >= A && B >= C){
+        return B
+    }
+    else if ( C >= B && B >= A && B >= D){
+        return B
+    }
+    else if ( A >= C && C >= B && C >= D){
+        return C
+    }
+    else if ( B >= C && C >= A && C >= D){
+        return C
+    }
+    else if ( D >= C && C >= B && C >= A){
+        return C
+    }
+    else if ( A >= D && D >= B && D >= C){
+        return D
+    }
+    else if ( B >= D && D >= A && D >= C){
+        return D
+    }
+    else if ( C >= D && D >= B && D >= A){
+        return D
+    }
+    else if ( B >= A && A >= C && A >= D){
+        return A
+    }
+    else if ( C >= A && A >= B && A >= D){
+        return A
+    }
+    else if ( D >= A && A >= C && A >= B){
+        return A
+    }
+    else {
+        return 0
+    }
 }
 
 func find ( ARR : [[Int]]) -> [[Int]]{
@@ -14,18 +55,13 @@ func find ( ARR : [[Int]]) -> [[Int]]{
     
     for i in 0...ARR.count/2-1{
         for j in 0...ARR.count/2-1{
-            var k = [Int]()
-            k.append(ARR[2*i][2*j])
-            k.append(ARR[2*i+1][2*j])
-            k.append(ARR[2*i][2*j+1])
-            k.append(ARR[2*i+1][2*j+1])
-            k.sort()
-            temp[i][j] = k[2]
+            temp[i][j] = max(A: ARR[2*i][2*j], B: ARR[2*i+1][2*j], C: ARR[2*i][2*j+1], D: ARR[2*i+1][2*j+1])
+            
         }
     }
+    
     return temp
 }
-
 
 while true {
     arr = find(ARR: arr)
@@ -34,5 +70,3 @@ while true {
         break
     }
 }
-
-
