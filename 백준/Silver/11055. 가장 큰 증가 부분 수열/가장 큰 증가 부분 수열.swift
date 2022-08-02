@@ -1,19 +1,15 @@
-var input = Int(readLine()!)!
-var array = readLine()!.split(separator: " ").map { Int(String($0))!}
-var maax = array[0]
-var answer = array
-if input > 1{
-    for i in 1...input-1{
-        for j in 0...i-1{
+func dp (_ input:Int){
+    let array = readLine()!.split(separator: " ").map { Int(String($0))!} 
+    var answer = array  
+    for i in 0...input-1{
+        for j in 0..<i{
             if array[i] > array[j] && answer[i] < answer[j] + array[i]{
                 answer[i] = answer[j] + array[i]
             }
-        }
-        maax = max(maax, answer[i])
+        }     
     }
-    print(maax)
-}
-else {
-    print(array[0])
+    print(answer.max()!)
 }
 
+var input = Int(readLine()!)!
+dp(input)
