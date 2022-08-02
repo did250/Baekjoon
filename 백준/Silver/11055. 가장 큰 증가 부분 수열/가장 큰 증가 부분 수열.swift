@@ -1,6 +1,6 @@
 var input = Int(readLine()!)!
 var array = readLine()!.split(separator: " ").map { Int(String($0))!}
-var max = array[0]
+var maax = array[0]
 var answer = array
 if input > 1{
     for i in 1...input-1{
@@ -9,11 +9,9 @@ if input > 1{
                 answer[i] = answer[j] + array[i]
             }
         }
-        if max < answer[i]{
-            max = answer[i]
-        }
+        maax = max(maax, answer[i])
     }
-    print(max)
+    print(maax)
 }
 else {
     print(array[0])
