@@ -1,9 +1,5 @@
 var input = Int(readLine()!)!
-var input2 = readLine()!.split(separator: " ").map { Int(String($0))!}
-var array = [Int]()
-for i in 0...input-1{
-    array.append(input2[i])
-}
+var array = readLine()!.split(separator: " ").map { Int(String($0))!}
 var max = array[0]
 var answer = array
 if input > 1{
