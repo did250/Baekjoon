@@ -1,12 +1,8 @@
 var input = readLine()!
-
-var arr = [Character]()
-
 var cnt = 0
 var cnt2 = 0
 var answer = 0
 for i in input.indices {
-    arr.append(input[i])
     if input[i] == "("{
         cnt += 1
     }
