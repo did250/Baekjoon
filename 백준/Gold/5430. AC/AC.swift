@@ -39,26 +39,13 @@ for _ in 1...testcase{
         print("[]")
     }
     else {
+        var ans = ""
         if reversed {
-            
-            print("[",terminator: "")
-            for i in 0...end-start {
-                print(nums[end-i],terminator: "")
-                if i != end-start {
-                    print(",",terminator: "")
-                }
-            }
-            print("]")
+            ans = nums[start...end].reversed().map { String($0) }.joined(separator: ",")
         }
         else {
-            print("[",terminator: "")
-            for i in start...end {
-                print(nums[i],terminator: "")
-                if i != end {
-                    print(",",terminator: "")
-                }
-            }
-            print("]")
+            ans = nums[start...end].map { String($0) }.joined(separator: ",")
         }
+        print("[\(ans)]")
     }
 }
