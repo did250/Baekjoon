@@ -10,10 +10,7 @@ dp[0] = 1
 for i in 0...input[0]-1 {
     for j in 1...input[1] {
         if j >= coins[i] {
-            if dp[j] + dp[j - coins[i]] >= Int(pow(2.0, 31.0)){
-                dp[j] = 0
-            }
-            else {
+            if dp[j] + dp[j - coins[i]] < Int(pow(2.0, 31.0)){
                 dp[j] += dp[j-coins[i]]
             }
         }
