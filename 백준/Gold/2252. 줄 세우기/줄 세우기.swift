@@ -10,8 +10,8 @@ for _ in 0..<M{
     let input = readLine()!.split(separator: " ").map({Int(String($0))!})
     let A = input[0]
     let B = input[1]
-    lower[B].append(A)
-    degree[A] += 1
+    lower[A].append(B)
+    degree[B] += 1
 }
 
 var queue = [Int]()
@@ -21,14 +21,10 @@ for i in 1..<N+1{
     }
 }
 
-
-var answer = [Int]()
 var s = 0
 while s < queue.count{
-    let cur = queue[s]
-    answer.append(cur)
-    
-    for i in lower[cur]{
+    print(queue[s], terminator: " ")
+    for i in lower[queue[s]]{
         degree[i] -= 1
         if degree[i] == 0{
             queue.append(i)
@@ -37,7 +33,3 @@ while s < queue.count{
     s += 1
 }
 
-answer.reverse()
-for i in answer{
-    print(i, terminator: " ")
-}
