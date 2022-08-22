@@ -21,11 +21,11 @@ for i in 1..<N+1{
     }
 }
 
-var index = 0
-var answer = [Int]()
 
-while !queue.isEmpty{
-    let cur = queue.removeFirst()
+var answer = [Int]()
+var s = 0
+while s < queue.count{
+    let cur = queue[s]
     answer.append(cur)
     
     for i in lower[cur]{
@@ -34,7 +34,7 @@ while !queue.isEmpty{
             queue.append(i)
         }
     }
-    index += 1
+    s += 1
 }
 
 answer.reverse()
