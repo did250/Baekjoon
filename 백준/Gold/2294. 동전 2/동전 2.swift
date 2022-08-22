@@ -8,7 +8,7 @@ for _ in 1...n {
         arr.append(input)
     }
 }
-arr.sort()
+
 dp[0] = 0
 for i in 0...arr.count-1 {
     for j in arr[i]...k {
