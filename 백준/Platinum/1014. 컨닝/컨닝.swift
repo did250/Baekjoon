@@ -1,19 +1,19 @@
 import Foundation
-//let file = FileIO()
-let T = Int(readLine()!)!
+let file = FileIO()
+let T = file.readInt()
 var N = 0
 var M = 0
 for _ in 0..<T {
     
-    let input = readLine()!.split(separator: " ").map{Int(String($0))!}
-    (N,M) = (input[0],input[1])
+//    let input = readLine()!.split(separator: " ").map{Int(String($0))!}
+//    (N,M) = (input[0],input[1])
     var answer = 0
-//    N = file.readInt()
-//    M = file.readInt()
+    N = file.readInt()
+    M = file.readInt()
     var dp = Array(repeating: Array(repeating: -1, count: (1 << M) ), count: N+1)
     var map : [[String]] = Array(repeating: [], count: N)
     for i in 0...N-1 {
-        map[i] = readLine()!.map{String($0)}
+        map[i] = file.readString().map{String($0)}
     }
     var canbe = [Int]()
     var count = [Int]()
