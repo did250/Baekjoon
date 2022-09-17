@@ -23,6 +23,7 @@ func dfs(_ len: Int){
 let dx = [-1, 1, 0, 0]
 let dy = [0, 0, 1, -1]
 func bfs(){
+    var idx = 0
     var visited = Array(repeating: Array(repeating: false, count: m), count: n)
     var map = arr
     var queue = [(Int,Int)]()
@@ -33,9 +34,10 @@ func bfs(){
             }
         }
     }
-    while !queue.isEmpty{
-        let cur = queue.removeFirst()
+    while idx < queue.count {
+        let cur = queue[idx]
         let (x,y) = (cur.0,cur.1)
+        idx += 1
         for i in 0...3{
             let nx = x + dx[i]
             let ny = y + dy[i]
